@@ -36,6 +36,9 @@ public class FenFXML_ConfirmationInscriptionControleur implements Initializable
      */
     
     //Ajout d'un commentaire pour le test
+    //Ajout d'un scond commentaire... encore pour tester... 
+    //Parce que je commence à croire que ça ne fonctionnera jamais
+    //Là tu ne pourras pas me dire que rien n'a été modifé ! 
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
