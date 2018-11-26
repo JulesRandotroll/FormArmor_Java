@@ -34,6 +34,8 @@ public class FenFXML_ConfirmationInscriptionControleur implements Initializable
     /**
      * Initializes the controller class.
      */
+    
+    //Ajout d'un commentaire pour le test
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
