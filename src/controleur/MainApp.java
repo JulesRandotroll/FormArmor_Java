@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import modele.Client;
@@ -25,37 +26,129 @@ import modele.Session;
 public class MainApp extends Application
 {
     private Stage primaryStage;
-    private Stage secondaryStage;
-    
+    private static BorderPane  rootLayout;
+
     // Pour conserver la session sélectionnée dans le TableView de la fenêtre inscription
     private static Session maSessionSelectionne;
     // Pour conserver le client sélectionné dans le ComboBox de la fenêtre inscription
     private static Client monClientSelectionne;
     
+    
+
+
+//Passage au code : 
+
+    public MainApp()
+    {
+    }
+    
     @Override
-    public void start(Stage primaryStage)
+    public void start(Stage primaryStage) throws IOException
     {
         this.primaryStage = primaryStage;
+        this.primaryStage.setTitle("FormArmor");
         try
         {
-            this.primaryStage.setTitle("Gestion des inscriptions aux sessions de formations");
-            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/vue/FenFXML_Inscription.fxml"));
-            AnchorPane rootLayout = (AnchorPane) loader.load();
+            //this.primaryStage.setTitle("Gestion des inscriptions aux sessions de formations");
+            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/vue/Menu.fxml"));
+            rootLayout = (BorderPane) loader.load();
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
             primaryStage.show();
+        
+            MenuController controller = loader.getController();
+            controller.setMainApp(this);
+            
         }
         catch (IOException e)
         {
             System.out.println("Erreur chargement fenetre principale : " + e.getMessage());
         }
+        affichageAccueil();
+
     }
+    
+       public Stage getPrimaryStage()
+    {
+        return primaryStage;
+    }
+    
+    public void affichageAccueil() 
+    {
+        System.out.println("mainApp Affiche Accueil");
+        try
+        {
+            FXMLLoader loader=new FXMLLoader(MainApp.class.getResource("/vue/Accueil.fxml"));
+            AnchorPane overviewPage=(AnchorPane)loader.load();
+            rootLayout.setCenter(overviewPage);
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+    
+    public void affichageInscription()
+    {
+        System.out.println("mainApp affiche Inscritpion");
+        try
+        {
+            FXMLLoader loader=new FXMLLoader(MainApp.class.getResource("/vue/FenFXML_Inscription.fxml"));
+            AnchorPane overviewPage=(AnchorPane)loader.load();
+            rootLayout.setCenter(overviewPage);    
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+    
+ 
+    
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     public void creationFenConfirm()
     {
         
     }
-    
+
     // Getter et Setter pour l'item selectionné dans le tableView des sessions (fenetre Inscription)
     public static void setMaSessionSelectionnee(Session maSession)
     {
@@ -82,4 +175,8 @@ public class MainApp extends Application
         launch(args);
     }
     
+   
+
+
+
 }

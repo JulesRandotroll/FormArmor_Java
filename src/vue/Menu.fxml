@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controleur.MenuController">
+   <top>
+      <MenuBar id="MenuBar" fx:id="MenuBar" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu id="btnAccueil" fx:id="btnAccueil" mnemonicParsing="false" text="Application">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleMenuAccueil" text="Accueil" />
+                  <MenuItem mnemonicParsing="false" text="Quitter" />
+               </items></Menu>
+          <Menu id="btnIsncription" fx:id="btnIsncription" mnemonicParsing="false" text="Inscription">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleMenuInsciption" text="Inscription aux Sessions" />
+               </items></Menu>
+          <Menu mnemonicParsing="false" text="Gestion">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Rentabilité" />
+                  <MenuItem mnemonicParsing="false" text="Session" />
+               </items></Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>
