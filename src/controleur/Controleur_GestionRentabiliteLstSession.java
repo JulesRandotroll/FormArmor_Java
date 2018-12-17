@@ -2,8 +2,13 @@
 package controleur;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ListView;
+import modele.gesSession;
 
 /**
  * FXML Controller class
@@ -13,6 +18,12 @@ import javafx.fxml.Initializable;
 public class Controleur_GestionRentabiliteLstSession implements Initializable
 {
     private MainApp mainApp;
+    
+    @FXML
+    ListView lst_sessions;
+    
+    
+    
     /**
      * Initializes the controller class.
      */
@@ -29,4 +40,10 @@ public class Controleur_GestionRentabiliteLstSession implements Initializable
         //System.out.println("MainApp set !");
     }
     
+    
+    private void remplirLstSession() throws SQLException
+    {
+        ObservableList obsList = gesSession.getSessionClose();
+        lst_sessions.setItems(obsList);
+    }
 }

@@ -61,6 +61,8 @@ public class Controleur_Inscription implements Initializable
     
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb)
@@ -71,20 +73,16 @@ public class Controleur_Inscription implements Initializable
         
         
         // Ecoute sur le changement d'item du TableView
-        tableSessionsAutorisees.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Session>()
+        tableSessionsAutorisees.getSelectionModel().selectedItemProperty().addListener((ObservableValue<? extends Session> observable, Session oldValue, Session newValue) ->
         {
-            @Override
-            public void changed(ObservableValue<? extends Session> observable, Session oldValue, Session newValue)
+            // Si une ligne sélectionnée alors
+            if (newValue == null)
             {
-                // Si une ligne sélectionnée alors
-                if (newValue == null)
-                {
-                    btnInscription.setVisible(false);
-                }
-                else
-                {
-                    btnInscription.setVisible(true);
-                }
+                btnInscription.setVisible(false);
+            }
+            else
+            {
+                btnInscription.setVisible(true);
             }
         });
         
@@ -101,11 +99,11 @@ public class Controleur_Inscription implements Initializable
             tableSessionsAutorisees.setItems(GestionSql.getLesSessions(((Client)(cmb_ChoixMatricule.getSelectionModel().getSelectedItem())).getId()));
 
             // Initialise le TableView tableSessionsAutorisees
-            colonneId.setCellValueFactory(new PropertyValueFactory<Session, String>("id"));
-            colonneFormation_id.setCellValueFactory(new PropertyValueFactory<Session, String>("formation_id"));
-            colonneDate_debut.setCellValueFactory(new PropertyValueFactory<Session, String>("date_debut"));
-            colonneNb_places.setCellValueFactory(new PropertyValueFactory<Session, String>("nb_places"));
-            colonneNb_inscrits.setCellValueFactory(new PropertyValueFactory<Session, String>("nb_inscrits"));
+            colonneId.setCellValueFactory(new PropertyValueFactory<>("id"));
+            colonneFormation_id.setCellValueFactory(new PropertyValueFactory<>("formation_id"));
+            colonneDate_debut.setCellValueFactory(new PropertyValueFactory<>("date_debut"));
+            colonneNb_places.setCellValueFactory(new PropertyValueFactory<>("nb_places"));
+            colonneNb_inscrits.setCellValueFactory(new PropertyValueFactory<>("nb_inscrits"));
 
             // Pour redimensionner les colonnes automatiquement
             tableSessionsAutorisees.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
