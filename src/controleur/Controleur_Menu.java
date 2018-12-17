@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//Controleur_Menu
+
 package controleur;
-//controleur.MenuController
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -15,7 +12,7 @@ import javafx.fxml.Initializable;
  *
  * @author Deborah G
  */
-public class MenuController implements Initializable 
+public class Controleur_Menu implements Initializable 
 {
     private MainApp mainApp;
 

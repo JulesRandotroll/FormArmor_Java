@@ -56,7 +56,7 @@ public class MainApp extends Application
             primaryStage.setScene(scene);
             primaryStage.show();
         
-            MenuController controller = loader.getController();
+            Controleur_Menu controller = loader.getController();
             controller.setMainApp(this);
             
         }
@@ -95,7 +95,7 @@ public class MainApp extends Application
         //System.out.println("mainApp affiche Inscritpion");
         try
         {
-            FXMLLoader loader=new FXMLLoader(MainApp.class.getResource("/vue/FenFXML_Inscription.fxml"));
+            FXMLLoader loader=new FXMLLoader(MainApp.class.getResource("/vue/Inscription.fxml"));
             AnchorPane overviewPage=(AnchorPane)loader.load();
             rootLayout.setCenter(overviewPage);    
         }
@@ -109,12 +109,12 @@ public class MainApp extends Application
     {
         try
         {
-            FXMLLoader loader=new FXMLLoader(MainApp.class.getResource("/vue/FenFXML_GestionRentabiliteLstSession.fxml"));
+            FXMLLoader loader=new FXMLLoader(MainApp.class.getResource("/vue/GestionRentabiliteLstSession.fxml"));
             AnchorPane overviewPage=(AnchorPane)loader.load();
             rootLayout.setCenter(overviewPage);    
             
             //Necessaire pour créer une fenêtre modale
-            FenFXML_GestionRentabiliteLstSessionController controller = loader.getController();
+            Controleur_GestionRentabiliteLstSession controller = loader.getController();
             controller.setMainApp(this);
         }
         catch(IOException e)

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//Controleur_Inscription
 package controleur;
 
 import java.io.IOException;
@@ -37,7 +33,7 @@ import sql.GestionBdd;
  *
  * @author Philippe
  */
-public class FenFXML_InscriptionControleur implements Initializable
+public class Controleur_Inscription implements Initializable
 {
     // Composants manipulés dans ce controleur
     @FXML
@@ -128,7 +124,7 @@ public class FenFXML_InscriptionControleur implements Initializable
         {
             secondaryStage = new Stage();
             secondaryStage.setTitle("Confirmation de l'inscription à la session de formation");
-            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/vue/FenFXML_ConfirmationInscription.fxml"));
+            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/vue/ConfirmationInscription.fxml"));
             //Session maSession = (Session)tableSessionsAutorisees.getSelectionModel().getSelectedItem();
             AnchorPane rootLayout = (AnchorPane) loader.load();
             Scene scene = new Scene(rootLayout);

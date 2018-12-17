@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//Controleur_ConfirmationInscription
 package controleur;
 
 import java.io.IOException;
@@ -25,7 +21,7 @@ import modele.Session;
  *
  * @author Philippe
  */
-public class FenFXML_ConfirmationInscriptionControleur implements Initializable
+public class Controleur_ConfirmationInscription implements Initializable
 {
     @FXML
     TextField txtNom, txtSession, txtDate, txtNbInscrits, txtNbPlaces;

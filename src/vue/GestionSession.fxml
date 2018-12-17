@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controleur.Controleur_GestionSession">
+   <children>
+      <TableView layoutX="74.0" layoutY="84.0" prefHeight="200.0" prefWidth="452.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="ID" />
+          <TableColumn prefWidth="75.0" text="ID Formation" />
+            <TableColumn prefWidth="75.0" text="Date Début" />
+            <TableColumn prefWidth="75.0" text="Nb Places" />
+            <TableColumn prefWidth="75.0" text="Nb Inscrits" />
+            <TableColumn prefWidth="75.0" text="PDF" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
