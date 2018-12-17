@@ -14,9 +14,9 @@ import javafx.fxml.Initializable;
  *
  * @author jules
  */
-public class FenFXML_GestionRentabiliteController implements Initializable
+public class FenFXML_GestionRentabiliteLstSessionController implements Initializable
 {
-
+    private MainApp mainApp;
     /**
      * Initializes the controller class.
      */
@@ -24,6 +24,13 @@ public class FenFXML_GestionRentabiliteController implements Initializable
     public void initialize(URL url, ResourceBundle rb)
     {
         // TODO
-    }    
+    }   
+    
+    public void setMainApp(MainApp MainApp)
+    {
+        //System.out.println("MainApp set ?");
+        this.mainApp = MainApp;
+        //System.out.println("MainApp set !");
+    }
     
 }

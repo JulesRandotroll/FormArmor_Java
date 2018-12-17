@@ -13,7 +13,7 @@
           <Menu id="btnAccueil" fx:id="btnAccueil" mnemonicParsing="false" text="Application">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#handleMenuAccueil" text="Accueil" />
-                  <MenuItem mnemonicParsing="false" text="Quitter" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleQuitter" text="Quitter" />
                </items></Menu>
           <Menu id="btnIsncription" fx:id="btnIsncription" mnemonicParsing="false" text="Inscription">
                <items>
@@ -21,7 +21,7 @@
                </items></Menu>
           <Menu mnemonicParsing="false" text="Gestion">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Rentabilité" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleMenuGestionRentabilite" text="Rentabilité" />
                   <MenuItem mnemonicParsing="false" text="Session" />
                </items></Menu>
         </menus>

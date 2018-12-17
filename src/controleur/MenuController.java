@@ -52,5 +52,16 @@ public class MenuController implements Initializable
         mainApp.affichageInscription();
     }
     
+    @FXML
+    public void handleQuitter() throws Exception
+    {
+        mainApp.quitterAppli();
+    }
     
+    @FXML
+    public void handleMenuGestionRentabilite()
+    {
+        mainApp.afficherGestionRentabilite();
+    }
+
 }

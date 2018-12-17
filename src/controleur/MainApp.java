@@ -73,9 +73,11 @@ public class MainApp extends Application
         return primaryStage;
     }
     
+    
+    //Affichages pages principales : 
     public void affichageAccueil() 
     {
-        System.out.println("mainApp Affiche Accueil");
+        //System.out.println("mainApp Affiche Accueil");
         try
         {
             FXMLLoader loader=new FXMLLoader(MainApp.class.getResource("/vue/Accueil.fxml"));
@@ -90,7 +92,7 @@ public class MainApp extends Application
     
     public void affichageInscription()
     {
-        System.out.println("mainApp affiche Inscritpion");
+        //System.out.println("mainApp affiche Inscritpion");
         try
         {
             FXMLLoader loader=new FXMLLoader(MainApp.class.getResource("/vue/FenFXML_Inscription.fxml"));
@@ -103,7 +105,27 @@ public class MainApp extends Application
         }
     }
     
+    public void afficherGestionRentabilite()
+    {
+        try
+        {
+            FXMLLoader loader=new FXMLLoader(MainApp.class.getResource("/vue/FenFXML_GestionRentabiliteLstSession.fxml"));
+            AnchorPane overviewPage=(AnchorPane)loader.load();
+            rootLayout.setCenter(overviewPage);    
+            
+            //Necessaire pour créer une fenêtre modale
+            FenFXML_GestionRentabiliteLstSessionController controller = loader.getController();
+            controller.setMainApp(this);
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+    
  
+ //Pages modales : 
+    //AffichageGestionRentabilite page modale : 
     
 
 
@@ -121,6 +143,10 @@ public class MainApp extends Application
     
     
     
+    public void quitterAppli() throws Exception
+    {
+        this.stop();
+    }
     
     
     
