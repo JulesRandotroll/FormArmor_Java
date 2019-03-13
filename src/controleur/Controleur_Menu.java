@@ -60,5 +60,11 @@ public class Controleur_Menu implements Initializable
     {
         mainApp.afficherGestionRentabilite();
     }
+    
+        @FXML
+    public void handleMenuSession()
+    {
+        mainApp.afficherGestionSession();
+    }
 
 }

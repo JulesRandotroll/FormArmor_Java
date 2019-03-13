@@ -84,6 +84,34 @@ public class GestionSql
         return lesSessions;
     }
     
+    public static ObservableList<Session> getAllSessions()
+    {
+        Connection conn;
+        Statement stmt1;
+        Session maSession;
+        ObservableList<Session> lesSessions = FXCollections.observableArrayList();
+        try
+        {
+            // On prévoit 2 connexions à la base
+            stmt1 = GestionBdd.connexionBdd(GestionBdd.TYPE_MYSQL, "formarmor","localhost", "root","");
+            
+            // Sélection des sessions 
+            String req = "select s.id,f.libelle, s.formation_id, s.date_debut, s.nb_places, s.nb_inscrits from session_formation s, formation f where s.formation_id = f.id";
+           
+            ResultSet rs = GestionBdd.envoiRequeteLMD(stmt1,req);
+            while (rs.next())
+            {
+                maSession = new Session(rs.getInt("id"), rs.getString("libelle"), rs.getDate("date_debut"), rs.getInt("nb_places"), rs.getInt("nb_inscrits"));
+                lesSessions.add(maSession);
+            }
+        }
+        catch (SQLException se)
+        {
+            System.out.println("Erreur SQL requete getALLSSessions : " + se.getMessage());
+        }
+        return lesSessions;
+        
+    }
     //Requête permettant l'insertion de l'inscription dans la table inscription et
     //la mise à jour de la table session_formation (+1 inscrit) et
     //la mise à jour de la table plan_formation (effectue passe à 1)

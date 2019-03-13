@@ -105,6 +105,20 @@ public class MainApp extends Application
         }
     }
     
+    public void afficherGestionSession()
+    {
+            try
+        {
+            FXMLLoader loader=new FXMLLoader(MainApp.class.getResource("/vue/GestionSession.fxml"));
+            AnchorPane overviewPage=(AnchorPane)loader.load();
+            rootLayout.setCenter(overviewPage);    
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+    
     public void afficherGestionRentabilite()
     {
         try
@@ -124,50 +138,16 @@ public class MainApp extends Application
     }
     
  
+    
  //Pages modales : 
     //AffichageGestionRentabilite page modale : 
     
 
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     public void quitterAppli() throws Exception
     {
-        this.stop();
+        System.exit(0);
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     public void creationFenConfirm()

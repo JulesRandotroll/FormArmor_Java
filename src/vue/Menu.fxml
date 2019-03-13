@@ -22,7 +22,7 @@
           <Menu mnemonicParsing="false" text="Gestion">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#handleMenuGestionRentabilite" text="Rentabilité" />
-                  <MenuItem mnemonicParsing="false" text="Session" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleMenuSession" text="Session" />
                </items></Menu>
         </menus>
       </MenuBar>
