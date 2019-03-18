@@ -15,10 +15,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import sql.GestionBdd;
 
-/**
- *
- * @author jules
- */
+ // modif 12
 public class gesSession
 {
     public static ObservableList getSessionClose() throws SQLException
