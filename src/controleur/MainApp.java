@@ -19,10 +19,7 @@ import javafx.stage.Stage;
 import modele.Client;
 import modele.Session;
 
-/**
- *
- * @author Philippe
- */
+
 public class MainApp extends Application
 {
     private Stage primaryStage;
@@ -45,6 +42,9 @@ public class MainApp extends Application
     @Override
     public void start(Stage primaryStage) throws IOException
     {
+        // le plop arrive t'il ?
+        
+        
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("FormArmor");
         try
@@ -115,6 +115,7 @@ public class MainApp extends Application
         }
         catch(IOException e)
         {
+            System.out.println("PLOP : "+ e.getMessage());
             e.printStackTrace();
         }
     }
