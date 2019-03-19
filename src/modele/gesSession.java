@@ -32,17 +32,25 @@ public class gesSession
             while (rs.next())
             {
                 int idSession = rs.getInt("s.id");
-                int nbPresent = rs.getInt("nb_inscrits");
+                int nbInscrits = rs.getInt("nb_inscrits");
                 int nbPlaces = rs.getInt("nb_places");
                 boolean close = rs.getBoolean("close");
-                String dateDenut = rs.getString("date_debut");
+                String dateDebut = rs.getString("date_debut");
                 
                 
                 int idFormation = rs.getInt("formation_id");
                 String libelleFormation = rs.getString("libelle");
+                String niveau = rs.getString("niveau");
+                String type = rs.getString("type_form");
+                String description = rs.getString("description");
+                boolean diplomante = rs.getBoolean("diplomante");
+                int duree = rs.getInt("duree");
                 double coutRevient =rs.getDouble("coutrevient");
                 
-                
+                Formation uneFormation = new Formation(idFormation,duree,libelleFormation,niveau,type,description,diplomante,coutRevient);
+                Session_Formation uneSession = new Session_Formation(idSession, dateDebut, nbPlaces, nbInscrits, close, uneFormation);
+                lstSession.add(uneSession);
+   
             }
         
         
