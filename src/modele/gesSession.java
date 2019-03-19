@@ -18,7 +18,38 @@ import sql.GestionBdd;
  // modif 12
 public class gesSession
 {
+    
     public static ObservableList getSessionClose() throws SQLException
+    {
+        Connection conn;
+        Statement stmt;
+        ObservableList lstSession = FXCollections.observableArrayList();
+        
+        stmt = GestionBdd.connexionBdd(GestionBdd.TYPE_MYSQL, "formarmor","localhost", "root","");
+        
+        String req = "Select * from formation f, session_formation s Where s.formation_id = f.id AND close=1";
+            ResultSet rs = GestionBdd.envoiRequeteLMD(stmt,req);
+            while (rs.next())
+            {
+                int idSession = rs.getInt("s.id");
+                int nbPresent = rs.getInt("nb_inscrits");
+                int nbPlaces = rs.getInt("nb_places");
+                boolean close = rs.getBoolean("close");
+                String dateDenut = rs.getString("date_debut");
+                
+                
+                int idFormation = rs.getInt("formation_id");
+                String libelleFormation = rs.getString("libelle");
+                double coutRevient =rs.getDouble("coutrevient");
+                
+                
+            }
+        
+        
+        return lstSession;
+    }
+    
+    /*public static ObservableList getSessionClose() throws SQLException
     {
         Connection conn;
         Statement stmt;
@@ -46,5 +77,5 @@ public class gesSession
         
         
         return lstSession;
-    }
+    }*/
 }
