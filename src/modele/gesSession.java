@@ -27,7 +27,7 @@ public class gesSession
         
         stmt = GestionBdd.connexionBdd(GestionBdd.TYPE_MYSQL, "formarmor","localhost", "root","");
         
-        String req = "Select * from formation f, session_formation s Where s.formation_id = f.id AND close=1";
+        String req = "Select * from formation f, session_formation s Where s.formation_id = f.id AND close=1 order by date_debut DESC";
             ResultSet rs = GestionBdd.envoiRequeteLMD(stmt,req);
             while (rs.next())
             {

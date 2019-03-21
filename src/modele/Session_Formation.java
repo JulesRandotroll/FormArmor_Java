@@ -103,7 +103,7 @@ public class Session_Formation
     @Override
     public String toString()
     {
-        return formation.toString();
+        return formation.toString() + " "+ dateDebut;
     }
     
     

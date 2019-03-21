@@ -6,24 +6,24 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controleur.Controleur_GestionRentabiliteSessionSelect">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controleur.Controleur_GestionRentabiliteSessionSelect">
    <children>
-       <TableView id="tab_Session" fx:id="tab_Session" layoutY="248.0" prefHeight="152.0" prefWidth="600.0">
+       <TableView id="tab_Session" fx:id="tab_Session" layoutY="30.0" prefHeight="55.0" prefWidth="600.0">
            <columns>
                <TableColumn prefWidth="100.0" text="Libelle" />
              <TableColumn prefWidth="100.0" text="Date" />
-               <TableColumn prefWidth="100.0" text="Nombre inscrits" />
-               <TableColumn prefWidth="100.0" text="Taux Remplissage" />
+               <TableColumn prefWidth="99.0" text="Nombre inscrits" />
+               <TableColumn prefWidth="101.0" text="Taux Remplissage" />
                <TableColumn prefWidth="100.0" text="Nombre Absents" />
                <TableColumn prefWidth="100.0" text="Marge" />
            </columns>
          </TableView>
-         <TableView id="tab_participants" fx:id="tab_participants" layoutX="420.0" prefHeight="196.0" prefWidth="180.0">
+         <TableView id="tab_participants" fx:id="tab_participants" layoutX="7.0" layoutY="85.0" prefHeight="196.0" prefWidth="180.0">
            <columns>
              <TableColumn prefWidth="90.0" text="Participants" />
              <TableColumn prefWidth="90.0" text="Taux Horraire" />
            </columns>
          </TableView>
-         <Button id="btn_notifAbs" fx:id="btn_notifAbs" layoutX="442.0" layoutY="200.0" mnemonicParsing="false" text="Notification d'Absence" />
+         <Button id="btn_notifAbs" fx:id="btn_notifAbs" layoutX="29.0" layoutY="281.0" mnemonicParsing="false" text="Notification d'Absence" />
    </children>
 </AnchorPane>
