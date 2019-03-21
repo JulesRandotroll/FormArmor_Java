@@ -42,7 +42,7 @@ public class MainApp extends Application
     @Override
     public void start(Stage primaryStage) throws IOException
     {
-        // le plop arrive t'il ?
+        // le plop arrive t'il ? t'aime
         
         
         this.primaryStage = primaryStage;

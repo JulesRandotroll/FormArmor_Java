@@ -26,6 +26,7 @@ public class Controleur_Menu implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
+         // modif 7
     }   
     
     public void setMainApp(MainApp MainApp)
@@ -61,7 +62,7 @@ public class Controleur_Menu implements Initializable
         mainApp.afficherGestionRentabilite();
     }
     
-        @FXML
+    @FXML
     public void handleMenuSession()
     {
         mainApp.afficherGestionSession();

@@ -20,6 +20,7 @@ public class Controleur_Accueil implements Initializable {
     public void setMainApp(MainApp mainApp)
     {
         this.mainApp=mainApp;
+        // modif 1
 
     }
     @Override

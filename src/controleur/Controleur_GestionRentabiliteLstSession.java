@@ -30,6 +30,7 @@ public class Controleur_GestionRentabiliteLstSession implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
+         // modif 3
         // TODO
     }   
     

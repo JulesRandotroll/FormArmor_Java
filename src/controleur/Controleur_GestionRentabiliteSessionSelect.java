@@ -19,7 +19,7 @@ public class Controleur_GestionRentabiliteSessionSelect implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        
+         // modif 4
     }    
     
 }

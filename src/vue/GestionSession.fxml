@@ -9,14 +9,13 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controleur.Controleur_GestionSession">
    <children>
-      <TableView layoutX="52.0" layoutY="118.0" prefHeight="230.0" prefWidth="496.0">
+      <TableView id="tabSessions" fx:id="tabSessions" layoutX="52.0" layoutY="118.0" prefHeight="230.0" prefWidth="496.0">
         <columns>
-          <TableColumn prefWidth="39.0" text="ID" />
-          <TableColumn prefWidth="111.0" text="ID Formation" />
-            <TableColumn prefWidth="98.0" text="Date Début" />
-            <TableColumn prefWidth="91.0" text="Nb Places" />
-            <TableColumn prefWidth="93.0" text="Nb Inscrits" />
-            <TableColumn prefWidth="63.0" text="PDF" />
+          <TableColumn id="colonneId" fx:id="colonneId" prefWidth="39.0" text="ID" />
+          <TableColumn id="colonneFormation_lib" fx:id="colonneFormation_lib" prefWidth="152.0" text="Libelle Formation" />
+            <TableColumn id="colonneDate_debut" fx:id="colonneDate_debut" prefWidth="113.0" text="Date Début" />
+            <TableColumn id="colonneNb_places" fx:id="colonneNb_places" prefWidth="92.0" text="Nb Places" />
+            <TableColumn id="colonneNb_inscrits" fx:id="colonneNb_inscrits" prefWidth="99.0" text="Nb Inscrits" />
         </columns>
       </TableView>
       <Label layoutX="181.0" layoutY="38.0" text="Gestion des Sessions" underline="true">
@@ -24,5 +23,6 @@
             <Font size="26.0" />
          </font>
       </Label>
+      <Button id="btn_test" fx:id="btn_test" layoutX="508.0" layoutY="355.0" mnemonicParsing="false" onAction="#handle_test" text="Test" />
    </children>
 </AnchorPane>

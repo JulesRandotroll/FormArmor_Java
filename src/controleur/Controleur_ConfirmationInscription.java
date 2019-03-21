@@ -38,6 +38,8 @@ public class Controleur_ConfirmationInscription implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
+        
+         // modif 2
         txtNom.setText(MainApp.getMonClientSelectionne().getNom());
         txtDate.setText(String.valueOf(MainApp.getMaSessionSelectionnee().getDate_debut()));
         txtSession.setText(MainApp.getMaSessionSelectionnee().getLibFormation());

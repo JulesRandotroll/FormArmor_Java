@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controleur.Controleur_GestionRentabilite">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controleur.Controleur_GestionRentabiliteLstSession">
    <children>
       <AnchorPane prefHeight="168.0" prefWidth="146.0" />
       <ListView id="lst_sessions" fx:id="lst_sessions" layoutX="184.0" layoutY="72.0" prefHeight="320.0" prefWidth="234.0" />

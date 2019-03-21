@@ -9,7 +9,7 @@ public class Client
 {
     private int id, statut_id, nbhcpta, nbhbur;
     private String nom, password, adresse, cp, ville, email;
-
+    // modif 8
     public Client()
     {
     }

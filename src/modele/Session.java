@@ -7,10 +7,7 @@ package modele;
 
 import java.sql.Date;
 
-/**
- *
- * @author Philippe
- */
+ // modif 11
 public class Session
 {
     private int id;
@@ -71,4 +68,11 @@ public class Session
     {
         this.nb_inscrits = nb_inscrits;
     }
+
+    @Override
+    public String toString() {
+        return "Session{" + "id=" + id + ", libFormation=" + libFormation + ", date_debut=" + date_debut + ", nb_places=" + nb_places + ", nb_inscrits=" + nb_inscrits + '}';
+    }
+    
+    
 }
