@@ -12,7 +12,7 @@ import javafx.fxml.Initializable;
  */
 public class Controleur_GestionRentabiliteSessionSelect implements Initializable
 {
-
+    private MainApp mainApp;
     /**
      * Initializes the controller class.
      */
@@ -21,5 +21,12 @@ public class Controleur_GestionRentabiliteSessionSelect implements Initializable
     {
          // modif 4
     }    
+    
+    public void setMainApp(MainApp MainApp)
+    {
+        //System.out.println("MainApp set ?");
+        this.mainApp = MainApp;
+        //System.out.println("MainApp set !");
+    }
     
 }

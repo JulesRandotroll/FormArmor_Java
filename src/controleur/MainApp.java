@@ -18,6 +18,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import modele.Client;
 import modele.Session;
+import modele.Session_Formation;
 
 
 public class MainApp extends Application
@@ -29,6 +30,18 @@ public class MainApp extends Application
     private static Session maSessionSelectionne;
     // Pour conserver le client sélectionné dans le ComboBox de la fenêtre inscription
     private static Client monClientSelectionne;
+    // Pour conserver la session et la formation sélectionnées par le client 
+    private static Session_Formation maSession_Formation;
+
+    public static Session_Formation getMaSession_Formation()
+    {
+        return maSession_Formation;
+    }
+
+    public static void setMaSession_Formation(Session_Formation maSession_Formation)
+    {
+        MainApp.maSession_Formation = maSession_Formation;
+    }
     
     
 
@@ -68,7 +81,7 @@ public class MainApp extends Application
 
     }
     
-       public Stage getPrimaryStage()
+    public Stage getPrimaryStage()
     {
         return primaryStage;
     }
@@ -92,7 +105,6 @@ public class MainApp extends Application
     
     public void affichageInscription()
     {
-        //System.out.println("mainApp affiche Inscritpion");
         try
         {
             FXMLLoader loader=new FXMLLoader(MainApp.class.getResource("/vue/Inscription.fxml"));
@@ -138,7 +150,23 @@ public class MainApp extends Application
         }
     }
     
- 
+    public void afficherGestionRentabiliteSessionSelectionnee()
+    {
+        try
+        {
+            FXMLLoader loader=new FXMLLoader(MainApp.class.getResource("/vue/GestionRentabiliteSessionSelect.fxml"));
+            AnchorPane overviewPage=(AnchorPane)loader.load();
+            rootLayout.setCenter(overviewPage);    
+            
+            //Necessaire pour créer une fenêtre modale
+            Controleur_GestionRentabiliteSessionSelect controller = loader.getController();
+            controller.setMainApp(this);
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
     
  //Pages modales : 
     //AffichageGestionRentabilite page modale : 

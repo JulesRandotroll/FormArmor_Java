@@ -18,7 +18,46 @@ import sql.GestionBdd;
  // modif 12
 public class gesSession
 {
+    
     public static ObservableList getSessionClose() throws SQLException
+    {
+        Connection conn;
+        Statement stmt;
+        ObservableList lstSession = FXCollections.observableArrayList();
+        
+        stmt = GestionBdd.connexionBdd(GestionBdd.TYPE_MYSQL, "formarmor","localhost", "root","");
+        
+        String req = "Select * from formation f, session_formation s Where s.formation_id = f.id AND close=1";
+            ResultSet rs = GestionBdd.envoiRequeteLMD(stmt,req);
+            while (rs.next())
+            {
+                int idSession = rs.getInt("s.id");
+                int nbInscrits = rs.getInt("nb_inscrits");
+                int nbPlaces = rs.getInt("nb_places");
+                boolean close = rs.getBoolean("close");
+                String dateDebut = rs.getString("date_debut");
+                
+                
+                int idFormation = rs.getInt("formation_id");
+                String libelleFormation = rs.getString("libelle");
+                String niveau = rs.getString("niveau");
+                String type = rs.getString("type_form");
+                String description = rs.getString("description");
+                boolean diplomante = rs.getBoolean("diplomante");
+                int duree = rs.getInt("duree");
+                double coutRevient =rs.getDouble("coutrevient");
+                
+                Formation uneFormation = new Formation(idFormation,duree,libelleFormation,niveau,type,description,diplomante,coutRevient);
+                Session_Formation uneSession = new Session_Formation(idSession, dateDebut, nbPlaces, nbInscrits, close, uneFormation);
+                lstSession.add(uneSession);
+   
+            }
+        
+        
+        return lstSession;
+    }
+    
+    /*public static ObservableList getSessionClose() throws SQLException
     {
         Connection conn;
         Statement stmt;
@@ -46,5 +85,5 @@ public class gesSession
         
         
         return lstSession;
-    }
+    }*/
 }
