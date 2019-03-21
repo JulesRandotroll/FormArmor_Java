@@ -5,9 +5,18 @@
  */
 package modele;
 
-import java.io.IOException;
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+
+import com.itextpdf.text.pdf.PdfWriter;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-///import com.itextpdf.text.*;
+import java.io.IOException;
+
+
 
 
 /**
@@ -16,14 +25,28 @@ import java.io.FileOutputStream;
  */
 public class PDFGenerator 
 {
-    public static final String url="C:\\Users\\debor\\Desktop\\BTS\\2eme annee\\PPE\\Applis_Support\\2018\\Appli_Java_JavaFX\\pdftest.pdf";
+   // public static final String url="C:\\Users\\debor\\Desktop\\BTS\\2eme annee\\PPE\\Applis_Support\\2018\\Appli_Java_JavaFX\\pdftest.pdf";
+       private static String url = "D:\\Maniaw";
     
-    /*public static void main(String[] args)throws DocumentException, IOException
-    {
-        Document document= new Document();
-        {
-            
+    public static void main() {
+
+        Document document = new Document(PageSize.A4);
+
+        try {
+            PdfWriter.getInstance(document,new FileOutputStream(url));
+            document.open();
+            document.add(new Paragraph("Hello World"));
+        } 
+        catch (DocumentException de) {
+            System.out.println("PLOP: "+de.getMessage());
+            de.printStackTrace();
         }
-    }*/
-    
+        catch(FileNotFoundException ex)
+        {
+            System.out.println("PLOP: "+ex.getMessage());
+        }
+
+        document.close();
+
+    }
 }

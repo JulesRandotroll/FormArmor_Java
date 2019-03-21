@@ -17,6 +17,7 @@ import javafx.collections.ObservableList;
 
 public class GestionSql
 {
+     // modif 9
     
     //Requete permettant de retourner l'ensemble des clients
     public static ObservableList<Client> getLesClients()
@@ -102,6 +103,7 @@ public class GestionSql
             while (rs.next())
             {
                 maSession = new Session(rs.getInt("id"), rs.getString("libelle"), rs.getDate("date_debut"), rs.getInt("nb_places"), rs.getInt("nb_inscrits"));
+                System.out.println("Ma session: "+maSession);
                 lesSessions.add(maSession);
             }
         }

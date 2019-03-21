@@ -67,6 +67,7 @@ public class Controleur_Inscription implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
+         // modif 6
         //Initialisation du ComboBox cmb_ChoixMatricule
         ObservableList<Client> lesClients = GestionSql.getLesClients();
         cmb_ChoixMatricule.setItems(lesClients);
