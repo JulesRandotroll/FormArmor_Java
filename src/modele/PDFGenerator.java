@@ -26,13 +26,14 @@ import java.io.IOException;
 public class PDFGenerator 
 {
    // public static final String url="C:\\Users\\debor\\Desktop\\BTS\\2eme annee\\PPE\\Applis_Support\\2018\\Appli_Java_JavaFX\\pdftest.pdf";
-       private static String url = "D:\\Maniaw";
+       private static String url = "C:\\Users\\debor\\Documents\\Java_FormArmor";
     
     public static void main() {
 
         Document document = new Document(PageSize.A4);
 
         try {
+            
             PdfWriter.getInstance(document,new FileOutputStream(url));
             document.open();
             document.add(new Paragraph("Hello World"));
