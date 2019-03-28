@@ -23,7 +23,7 @@ import modele.Session_Formation;
 
 public class MainApp extends Application
 {
-    private Stage primaryStage;
+    private Stage primaryStage, secondaryStage;
     private static BorderPane  rootLayout;
 
     // Pour conserver la session sélectionnée dans le TableView de la fenêtre inscription
@@ -134,19 +134,41 @@ public class MainApp extends Application
     
     public void afficherGestionRentabilite()
     {
-        try
+        /*try
         {
-            FXMLLoader loader=new FXMLLoader(MainApp.class.getResource("/vue/GestionRentabiliteLstSession.fxml"));
+            FXMLLoader loader=new FXMLLoader(MainApp.class.getResource("/vue/GestionRentabiliteSessions.fxml"));
             AnchorPane overviewPage=(AnchorPane)loader.load();
             rootLayout.setCenter(overviewPage);    
             
             //Necessaire pour créer une fenêtre modale
-            Controleur_GestionRentabiliteLstSession controller = loader.getController();
+            Controlleur_GestionRentabiliteSessions controller = loader.getController();
             controller.setMainApp(this);
+            
+            
         }
         catch(IOException e)
         {
             e.printStackTrace();
+        }*/
+        try
+        {
+            secondaryStage = new Stage();
+            secondaryStage.setTitle("Gestion rentabilité");
+            FXMLLoader loader=new FXMLLoader(MainApp.class.getResource("/vue/GestionRentabiliteSessions.fxml"));
+
+             AnchorPane rootLayout = (AnchorPane) loader.load();
+            Scene scene = new Scene(rootLayout);
+            secondaryStage.setScene(scene);
+            secondaryStage.show();
+            
+            
+            /*Controlleur_GestionRentabiliteSessions controller = loader.getController();
+            controller.setMainApp(this);
+*/
+        }
+        catch (IOException e)
+        {
+            System.out.println("Erreur chargement seconde fenetre : " + e.getMessage());
         }
     }
     

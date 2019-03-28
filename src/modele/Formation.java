@@ -115,10 +115,8 @@ public class Formation
     @Override
     public String toString()
     {
-        return libelle+" "+niveau; 
-                 
+        return "Formation{" + "libelle=" + libelle + ", niveau=" + niveau + '}';
     }
-
     
     
     

@@ -5,6 +5,8 @@
  */
 package modele;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author jules
@@ -16,6 +18,7 @@ public class Session_Formation
     int nbPlace, nbInscrits;
     boolean close;
     Formation formation;
+    ArrayList<Client_Formation> lesInscrits;
 
     public Session_Formation()
     {
@@ -38,6 +41,16 @@ public class Session_Formation
         this.nbInscrits = nbInscrits;
         this.close = close;
         this.formation = formation;
+    }
+    public Session_Formation(int id_Session, String dateDebut, int nbPlace, int nbInscrits, boolean close, Formation formation, ArrayList<Client_Formation> lesInscrits)
+    {
+        this.id_Session = id_Session;
+        this.dateDebut = dateDebut;
+        this.nbPlace = nbPlace;
+        this.nbInscrits = nbInscrits;
+        this.close = close;
+        this.formation = formation;
+        this.lesInscrits = lesInscrits;
     }
 
     public int getId_Session()
@@ -100,10 +113,47 @@ public class Session_Formation
         this.formation = formation;
     }
 
+    public ArrayList<Client_Formation> getLesInscrits()
+    {
+        return lesInscrits;
+    }
+
+    public void setLesInscrits(ArrayList<Client_Formation> lesInscrits)
+    {
+        this.lesInscrits = lesInscrits;
+    }
+
+    //Formation : 
+    public String getLibelleFormation()
+    {
+        return formation.getLibelle();
+    }
+           
+    public String getNiveauFormation()
+    {
+        return formation.getNiveau();
+    }
+    //Fin formation
+    
+    //Client
+    public int getNbAbsents()
+    {
+        int absents = 0;
+        for(int i = 0; i< lesInscrits.size();i++)
+        {
+            if(!lesInscrits.get(i).isPresent())
+            {
+                absents++;
+            }
+        }
+        return absents;
+    }
+    //Fin Client
+    
     @Override
     public String toString()
     {
-        return formation.toString() + " "+ dateDebut;
+        return "Session_Formation{" + "dateDebut=" + dateDebut + ", " + formation.toString() + '}';
     }
     
     

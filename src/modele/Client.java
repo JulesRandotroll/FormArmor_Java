@@ -120,6 +120,6 @@ public class Client
     @Override
     public String toString()
     {
-        return String.valueOf(id);
+        return nom;
     }
 }

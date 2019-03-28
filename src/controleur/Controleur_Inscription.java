@@ -129,6 +129,7 @@ public class Controleur_Inscription implements Initializable
             Scene scene = new Scene(rootLayout);
             secondaryStage.setScene(scene);
             secondaryStage.show();
+            
         }
         catch (IOException e)
         {

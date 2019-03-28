@@ -13,7 +13,7 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="174.0">
                <children>
-                  <TableView id="tab_formation" fx:id="tab_formation" prefHeight="598.0" prefWidth="230.0">
+                  <TableView id="tab_formation" fx:id="tab_formation" onMouseClicked="#handleSession" prefHeight="598.0" prefWidth="230.0">
                      <columns>
                         <TableColumn id="col_nom" fx:id="col_nom" prefWidth="75.0" text="Nom" />
                         <TableColumn id="col_niveau" fx:id="col_niveau" prefWidth="75.0" text="Niveau" />
@@ -22,11 +22,11 @@
                   </TableView>
                </children>
             </AnchorPane>
-          <AnchorPane id="partieConditionnelle" cache="true" minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="677.0">
+          <AnchorPane id="panel_affichSessionSel" fx:id="panel_affichSessionSel" cache="true" minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="677.0" visible="false" SplitPane.resizableWithParent="false">
                <children>
                   <SplitPane dividerPositions="0.2785234899328859" layoutY="-2.0" orientation="VERTICAL" prefHeight="600.0" prefWidth="671.0">
                     <items>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="193.0" prefWidth="645.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="193.0" prefWidth="645.0" SplitPane.resizableWithParent="false">
                            <children>
                               <GridPane layoutX="12.0" layoutY="13.0" prefHeight="140.0" prefWidth="645.0">
                                  <children>
@@ -102,9 +102,9 @@
                               </GridPane>
                            </children>
                         </AnchorPane>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="413.0" prefWidth="669.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="413.0" prefWidth="669.0" SplitPane.resizableWithParent="false">
                            <children>
-                              <TableView id="tab_clientFormation" fx:id="tab_clientFormation" layoutX="14.0" prefHeight="428.0" prefWidth="275.0">
+                              <TableView id="tab_clientFormation" fx:id="tab_clientFormation" layoutX="14.0" onMouseClicked="#handleClientFormation" prefHeight="428.0" prefWidth="275.0">
                                 <columns>
                                   <TableColumn id="col_client" fx:id="col_client" prefWidth="113.0" text="Client" />
                                   <TableColumn id="col_taux" fx:id="col_taux" prefWidth="91.0" text="Taux Horaire" />
@@ -148,7 +148,7 @@
                                     </GridPane>
                                  </children>
                               </GridPane>
-                              <Button id="btn_modifier" fx:id="btn_modifier" layoutX="546.0" layoutY="295.0" mnemonicParsing="false" text="Modifier" />
+                              <Button id="btn_modifier" fx:id="btn_modifier" layoutX="546.0" layoutY="295.0" mnemonicParsing="false" onAction="#handleNotifierAbsence" text="Modifier" />
                            </children>
                         </AnchorPane>
                     </items>
