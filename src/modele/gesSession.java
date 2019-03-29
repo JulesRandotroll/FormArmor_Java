@@ -87,11 +87,32 @@ public class gesSession
                 lstSession.add(uneSession);
    
             }
-        
-        
         return lstSession;
     }
     
+    
+    
+    public static void notificationAbsence(boolean present, int idClient, int idSession)
+    {
+        Connection conn;
+        Statement stmt;
+        
+        stmt = GestionBdd.connexionBdd(GestionBdd.TYPE_MYSQL, "formarmor","localhost", "root","");
+    
+        
+        String req = "UPDATE `inscription` SET `present`= "+String.valueOf(present)+" WHERE client_id = "+String.valueOf(idClient)+" AND session_formation_id = "+idSession;
+        //UPDATE inscription SET present = true WHERE client_id = 3 AND session_formation_id = 6
+        
+        
+        ResultSet nb = GestionBdd.envoiRequeteLMD(stmt,req);
+        System.out.println("\nkeskécé ? "+nb);
+        int nb2 = GestionBdd.envoiRequeteLID(stmt, req);
+        System.out.println("keskécé ? "+nb2);
+        System.out.println("Requete : "+req+"\n");
+        
+        
+    
+    }
     /*public static ObservableList getSessionClose() throws SQLException
     {
         Connection conn;

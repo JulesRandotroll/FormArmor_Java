@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import modele.Client;
 import modele.Session;
@@ -159,12 +160,18 @@ public class MainApp extends Application
              AnchorPane rootLayout = (AnchorPane) loader.load();
             Scene scene = new Scene(rootLayout);
             secondaryStage.setScene(scene);
+            secondaryStage.initOwner(primaryStage);
+            secondaryStage.initModality(Modality.APPLICATION_MODAL);
             secondaryStage.show();
             
             
-            /*Controlleur_GestionRentabiliteSessions controller = loader.getController();
-            controller.setMainApp(this);
-*/
+            /*
+                Controlleur_GestionRentabiliteSessions controller = loader.getController();
+                controller.setMainApp(this);
+                dialog.initOwner(parentStage);
+                dialog.initModality(Modality.APPLICATION_MODAL); 
+                dialog.showAndWait();
+            */
         }
         catch (IOException e)
         {

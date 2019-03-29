@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.ResourceBundle;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -260,6 +261,24 @@ public class Controlleur_GestionRentabiliteSessions implements Initializable
     @FXML
     public void handleNotifierAbsence()
     {
+        Client_Formation monClient = tab_clientFormation.getSelectionModel().getSelectedItem();
+        Session_Formation laSession = tab_formation.getSelectionModel().getSelectedItem();;
+        boolean present = true;
+        
+        if(radio_absent.isSelected())
+        {
+            present = false;
+        }
+        
+        if(present != monClient.isPresent())
+        {
+            //Mise à jour
+            gesSession.notificationAbsence(present,monClient.getId(),laSession.getId_Session());
+            monClient.setPresent(present);
+            
+        }
+        
+        
         txt_nom.setVisible(false);
         lbl_nom.setVisible(false);
         txt_statut.setVisible(false);
