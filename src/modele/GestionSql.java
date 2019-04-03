@@ -29,7 +29,7 @@ public class GestionSql
         try
         {
             // On prévoit 2 connexions à la base
-            stmt1 = GestionBdd.connexionBdd(GestionBdd.TYPE_MYSQL, "formarmor","localhost", "root","");
+            stmt1 = GestionBdd.connexionBdd(GestionBdd.TYPE_MYSQL, "formarmorjava","localhost", "root","");
             
             // Liste des clients qui "ont un plan de formation"
             String req = "select distinct c.id, statut_id, nom, password, adresse, cp, ville, email, nbhcpta, nbhbur from client c, plan_formation p "
@@ -58,7 +58,7 @@ public class GestionSql
         try
         {
             // On prévoit 2 connexions à la base
-            stmt1 = GestionBdd.connexionBdd(GestionBdd.TYPE_MYSQL, "formarmor","localhost", "root","");
+            stmt1 = GestionBdd.connexionBdd(GestionBdd.TYPE_MYSQL, "formarmorjava","localhost", "root","");
             
             // Sélection des sessions autorisées pour le client choisi
             String req = "select c.nom, s.id, f.libelle, f.niveau, date_debut, duree, nb_places, nb_inscrits, coutrevient ";
@@ -94,7 +94,7 @@ public class GestionSql
         try
         {
             // On prévoit 2 connexions à la base
-            stmt1 = GestionBdd.connexionBdd(GestionBdd.TYPE_MYSQL, "formarmor","localhost", "root","");
+            stmt1 = GestionBdd.connexionBdd(GestionBdd.TYPE_MYSQL, "formarmorjava","localhost", "root","");
             
             // Sélection des sessions 
             String req = "select s.id,f.libelle, s.formation_id, s.date_debut, s.nb_places, s.nb_inscrits from session_formation s, formation f where s.formation_id = f.id";

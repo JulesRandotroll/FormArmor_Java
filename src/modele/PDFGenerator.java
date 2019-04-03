@@ -26,9 +26,9 @@ import java.io.IOException;
 public class PDFGenerator 
 {
    // public static final String url="C:\\Users\\debor\\Desktop\\BTS\\2eme annee\\PPE\\Applis_Support\\2018\\Appli_Java_JavaFX\\pdftest.pdf";
-       private static String url = "C:\\Users\\debor\\Documents\\Java_FormArmor";
-    
-       //D:\
+       //private static String url = "C:\\Users\\debor\\Documents\\Java_FormArmor";
+        private static String url = "D:\\PDF";
+       //D:\\PDF
        
     public static void main() {
 

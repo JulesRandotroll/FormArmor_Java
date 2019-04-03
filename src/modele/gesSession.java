@@ -26,7 +26,7 @@ public class gesSession
         ObservableList<Session_Formation> lstSession = FXCollections.observableArrayList();
         ArrayList<Client_Formation> lesInscrits;
         
-        stmt = GestionBdd.connexionBdd(GestionBdd.TYPE_MYSQL, "formarmor","localhost", "root","");
+        stmt = GestionBdd.connexionBdd(GestionBdd.TYPE_MYSQL, "formarmorjava","localhost", "root","");
         
         String req = "Select * from formation f, session_formation s Where s.formation_id = f.id AND close=1 order by date_debut DESC";
             ResultSet rs = GestionBdd.envoiRequeteLMD(stmt,req);
@@ -48,7 +48,7 @@ public class gesSession
                 int duree = rs.getInt("duree");
                 double coutRevient =rs.getDouble("coutrevient");
                 lesInscrits = new ArrayList<Client_Formation>();
-                Statement stmt2 = GestionBdd.connexionBdd(GestionBdd.TYPE_MYSQL, "formarmor","localhost", "root","");
+                Statement stmt2 = GestionBdd.connexionBdd(GestionBdd.TYPE_MYSQL, "formarmorjava","localhost", "root","");
                 String req2 = "SELECT * FROM client c, inscription i, statut s WHERE c.`id` = i.client_id AND s.id = c.statut_id AND session_formation_id = "+idSession;
                 ResultSet rs2 = GestionBdd.envoiRequeteLMD(stmt2,req2);
                 while(rs2.next())
@@ -97,7 +97,7 @@ public class gesSession
         Connection conn;
         Statement stmt;
         
-        stmt = GestionBdd.connexionBdd(GestionBdd.TYPE_MYSQL, "formarmor","localhost", "root","");
+        stmt = GestionBdd.connexionBdd(GestionBdd.TYPE_MYSQL, "formarmorjava","localhost", "root","");
     
         
         String req = "UPDATE `inscription` SET `present`= "+String.valueOf(present)+" WHERE client_id = "+String.valueOf(idClient)+" AND session_formation_id = "+idSession;
@@ -119,7 +119,7 @@ public class gesSession
         Statement stmt;
         ObservableList lstSession = FXCollections.observableArrayList();
         
-        stmt = GestionBdd.connexionBdd(GestionBdd.TYPE_MYSQL, "formarmor","localhost", "root","");
+        stmt = GestionBdd.connexionBdd(GestionBdd.TYPE_MYSQL, "formarmorjava","localhost", "root","");
         
         String req = "Select * from formation f, session_formation s Where s.formation_id = f.id AND close=1";
             ResultSet rs = GestionBdd.envoiRequeteLMD(stmt,req);
