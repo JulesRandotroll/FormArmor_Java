@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controleur;
 
 import java.io.FileNotFoundException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,22 +11,18 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.util.Callback;
+import modele.Formation;
 
 import modele.GestionSql;
 import modele.PDFGenerator;
 import modele.Session;
 
-/**
- *
- * @author debor
- */
 public class Controleur_GestionSession implements Initializable {
 
     private MainApp mainApp;
 
     @FXML
-    private Button btn_test;
+    private Button btn_pdf;
     @FXML
     private TableView<Session> tabSessions;
     @FXML
@@ -44,20 +35,15 @@ public class Controleur_GestionSession implements Initializable {
     private TableColumn<Session, String> colonneNb_places;
     @FXML
     private TableColumn<Session, String> colonneNb_inscrits;
-    @FXML
-    private TableColumn<Session, String> colonnePDF;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-         // modif 5
-        // Ajoute les données de la collection de données au TableView
-        
+
         ObservableList<Session> AllSession=GestionSql.getAllSessions();
-        for(int i = 0; i< AllSession.size(); i++)
+        /*for(int i = 0; i< AllSession.size(); i++)
         {
             System.out.println("Controlleur session : "+AllSession.get(i));
-        }
+        }*/
         
         tabSessions.setItems(AllSession);
 
@@ -68,9 +54,6 @@ public class Controleur_GestionSession implements Initializable {
         colonneNb_places.setCellValueFactory(new PropertyValueFactory<>("nb_places"));
         colonneNb_inscrits.setCellValueFactory(new PropertyValueFactory<>("nb_inscrits"));
         
-       
-  
-
         // Pour redimensionner les colonnes automatiquement
         tabSessions.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     }
@@ -82,9 +65,11 @@ public class Controleur_GestionSession implements Initializable {
     }
     
     @FXML
-    public void handle_test() throws FileNotFoundException
+    public void handle_genererPDF() throws FileNotFoundException
     {
-        PDFGenerator.main();
+        Session SessionSelect= tabSessions.getSelectionModel().getSelectedItem();
+        Formation f=GestionSql.getLaFormation(SessionSelect.getId());
+        PDFGenerator.main(SessionSelect,f);
                 
                 
     }

@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import javafx.collections.FXCollections;
 import sql.GestionBdd;
@@ -29,7 +30,7 @@ public class GestionSql
         try
         {
             // On prévoit 2 connexions à la base
-            stmt1 = GestionBdd.connexionBdd(GestionBdd.TYPE_MYSQL, "formarmor","localhost", "root","");
+            stmt1 = GestionBdd.connexionBdd(GestionBdd.TYPE_MYSQL, "formarmorjava","localhost", "root","");
             
             // Liste des clients qui "ont un plan de formation"
             String req = "select distinct c.id, statut_id, nom, password, adresse, cp, ville, email, nbhcpta, nbhbur from client c, plan_formation p "
@@ -58,7 +59,7 @@ public class GestionSql
         try
         {
             // On prévoit 2 connexions à la base
-            stmt1 = GestionBdd.connexionBdd(GestionBdd.TYPE_MYSQL, "formarmor","localhost", "root","");
+            stmt1 = GestionBdd.connexionBdd(GestionBdd.TYPE_MYSQL, "formarmorjava","localhost", "root","");
             
             // Sélection des sessions autorisées pour le client choisi
             String req = "select c.nom, s.id, f.libelle, f.niveau, date_debut, duree, nb_places, nb_inscrits, coutrevient ";
@@ -94,7 +95,7 @@ public class GestionSql
         try
         {
             // On prévoit 2 connexions à la base
-            stmt1 = GestionBdd.connexionBdd(GestionBdd.TYPE_MYSQL, "formarmor","localhost", "root","");
+            stmt1 = GestionBdd.connexionBdd(GestionBdd.TYPE_MYSQL, "formarmorjava","localhost", "root","");
             
             // Sélection des sessions 
             String req = "select s.id,f.libelle, s.formation_id, s.date_debut, s.nb_places, s.nb_inscrits from session_formation s, formation f where s.formation_id = f.id";
@@ -114,6 +115,8 @@ public class GestionSql
         return lesSessions;
         
     }
+    
+    
     //Requête permettant l'insertion de l'inscription dans la table inscription et
     //la mise à jour de la table session_formation (+1 inscrit) et
     //la mise à jour de la table plan_formation (effectue passe à 1)
@@ -148,5 +151,58 @@ public class GestionSql
         int nb1 = GestionBdd.envoiRequeteLID(stmt1, req);
         int nb2 = GestionBdd.envoiRequeteLID(stmt1, req2);
         int nb3 = GestionBdd.envoiRequeteLID(stmt1, req4);
+    }
+
+    public static Formation getLaFormation(int id) 
+    {  Connection conn;
+        Statement stmt1;
+        Formation maFormation=new Formation ();
+    
+        try
+        {
+            stmt1 = GestionBdd.connexionBdd(GestionBdd.TYPE_MYSQL, "formarmorjava","localhost", "root","");
+            
+            // Sélection des sessions 
+            String req = "select f.id, f.libelle, f.niveau, f.type_form, f.description, f.diplomante, f.duree, f.coutrevient from Formation f, Session_Formation sf Where sf.formation_id=f.id and sf.id='"+id+"'";
+           
+            ResultSet rs = GestionBdd.envoiRequeteLMD(stmt1,req);
+            while (rs.next())
+            {
+                maFormation = new Formation(rs.getInt("id"), rs.getInt("duree"), rs.getString("libelle"), rs.getString("niveau"), rs.getString("type_form"), rs.getString("description"),rs.getBoolean("diplomante"),rs.getDouble("coutrevient"));
+                System.out.println("Ma formation: "+maFormation);
+            }
+        }
+        catch (SQLException se)
+        {
+            System.out.println("Erreur SQL requete getMaformation : " + se.getMessage());
+        }
+        return maFormation;
+    }
+    
+     public static ArrayList<Client> getLesClientsAFormer(int idFormation)
+    {
+        Connection conn;
+        Statement stmt1;
+        Client monClient;
+        ArrayList<Client> lesClients = new ArrayList<Client>();
+        try
+        {
+            // On prévoit 2 connexions à la base
+            stmt1 = GestionBdd.connexionBdd(GestionBdd.TYPE_MYSQL, "formarmorjava","localhost", "root","");
+            
+            // Liste des clients qui "ont un plan de formation"
+            String req = "select distinct c.id, statut_id, nom, password, adresse, cp, ville, email, nbhcpta, nbhbur from client c, plan_formation p where p.client_id=c.id and formation_id='"+idFormation+"'";
+            ResultSet rs = GestionBdd.envoiRequeteLMD(stmt1,req);
+            while (rs.next())
+            {
+                monClient = new Client(rs.getInt("id"), rs.getInt("statut_id"), rs.getInt("nbhcpta"), rs.getInt("nbhbur"), rs.getString("nom"), rs.getString("password"), rs.getString("adresse"), rs.getString("cp"), rs.getString("ville"), rs.getString("email"));
+                lesClients.add(monClient);
+            }
+        }
+        catch (SQLException se)
+        {
+            System.out.println("Erreur SQL requete getLesClients : " + se.getMessage());
+        }
+        return lesClients;
     }
 }

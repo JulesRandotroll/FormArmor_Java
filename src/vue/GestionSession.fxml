@@ -23,6 +23,6 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <Button id="btn_test" fx:id="btn_test" layoutX="508.0" layoutY="355.0" mnemonicParsing="false" onAction="#handle_test" text="Test" />
+      <Button id="btn_pdf" fx:id="btn_pdf" layoutX="363.0" layoutY="355.0" mnemonicParsing="false" onAction="#handle_genererPDF" text="Generer feuille d'émargement" />
    </children>
 </AnchorPane>
